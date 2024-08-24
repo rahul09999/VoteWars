@@ -10,7 +10,7 @@ const fontSans = FontSans({
 
 export const metadata: Metadata = {
   title: "VoteWars App",
-  description: "App for voting wars",
+  description: "Your Vote, Your Power, Your Game",
 };
 
 export default function RootLayout({
