@@ -4,7 +4,7 @@ import { Label } from "@/components/ui/label";
 import Link from "next/link";
 import React from "react";
 
-function page() {
+function login() {
   return (
     <div className="flex justify-center items-center h-screen">
       <div className="w-[500px] bg-white shadow-xl rounded-xl px-10 py-5">
@@ -44,4 +44,4 @@ function page() {
   );
 }
 
-export default page;
+export default login;
