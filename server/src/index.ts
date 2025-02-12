@@ -4,8 +4,8 @@ import ejs from "ejs";
 import { fileURLToPath } from "url";
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 import "dotenv/config";
-import { sendMail } from "./src/config/mail.js";
-import Routes from "./src/routes/index.js"
+import { sendMail } from "./config/mail.js";
+import Routes from "./routes/index.js"
 
 const app: Application = express();
 const PORT = process.env.PORT || 7000;
@@ -34,8 +34,8 @@ app.get("/", async (req: Request, res: Response) => {
 });
 
 // Jobs queue
-import "./src/jobs/index.js";
-import { emailQueue, emailQueueName } from "./src/jobs/emailJobs.js";
+import "./jobs/index.js";
+import { emailQueue, emailQueueName } from "./jobs/emailJobs.js";
 
 app.listen(PORT, () =>
   console.log(`Server is running on port: localhost:${PORT}`)

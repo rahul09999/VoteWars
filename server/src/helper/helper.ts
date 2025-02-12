@@ -1,4 +1,7 @@
 import { ZodError } from "zod";
+import path from "path";
+import ejs from "ejs";
+import { fileURLToPath } from "url";
 
 export const formatError = (error: ZodError):any => {
     let errors:any = {}
@@ -10,7 +13,7 @@ export const formatError = (error: ZodError):any => {
 
 // Previosly getting issue format
 // {
-//     "issues": [
+    //     "issues": [
 //         {
 //             "code": "invalid_type",
 //             "expected": "string",
@@ -50,3 +53,10 @@ export const formatError = (error: ZodError):any => {
 //     ],
 //     "name": "ZodError"
 // }
+
+export const renderEmailEjs = async (fileName:string, payload:any): Promise<string> => {
+    const __dirname = path.dirname(fileURLToPath(import.meta.url));
+    // const html: string = await ejs.renderFile(__dirname + `/views/emails/${fileName}.ejs`, payload);
+    const html: string = await ejs.renderFile(path.join(__dirname, '../views/emails', `${fileName}.ejs`), payload);
+    return html
+}

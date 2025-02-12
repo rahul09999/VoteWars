@@ -1,3 +1,6 @@
+import path from "path";
+import ejs from "ejs";
+import { fileURLToPath } from "url";
 export const formatError = (error) => {
     let errors = {};
     error.errors?.map((issue) => {
@@ -47,3 +50,9 @@ export const formatError = (error) => {
 //     ],
 //     "name": "ZodError"
 // }
+export const renderEmailEjs = async (fileName, payload) => {
+    const __dirname = path.dirname(fileURLToPath(import.meta.url));
+    // const html: string = await ejs.renderFile(__dirname + `/views/emails/${fileName}.ejs`, payload);
+    const html = await ejs.renderFile(path.join(__dirname, '../views/emails', `${fileName}.ejs`), payload);
+    return html;
+};
